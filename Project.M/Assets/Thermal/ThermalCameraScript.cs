@@ -28,7 +28,7 @@ public class ThermalCameraScript : MonoBehaviour {
 
 	//--------------------------------
 	
-	bool TV = true; // Thermal Vision
+	bool TV = false; // Thermal Vision
 	Camera cam;
 
 	Material TVPostProcessingMaterial = null;
@@ -44,8 +44,8 @@ public class ThermalCameraScript : MonoBehaviour {
 	void Update() {
 		List<TemperatureController> TCs = GetAllTemperatureControllers();
 
-		if (Input.GetKeyDown("1")) {
-			TV = !TV;
+		if (Input.GetKeyDown(KeyCode.F))
+		{
 
 			if (TV) {
 				// replace skybox material (since replacement shade doesn't seem to affect it)
@@ -62,10 +62,11 @@ public class ThermalCameraScript : MonoBehaviour {
 
 				// everything else
 				cam.SetReplacementShader(TVSurfaceReplacement, "RenderType");
+				TV = false;
 
 			} else {
 				// restore skybox material
-	
+				// if !TV
 
 				// restore temperature-controlled object tags and color
 				foreach (TemperatureController TC in TCs) {
@@ -77,6 +78,7 @@ public class ThermalCameraScript : MonoBehaviour {
 
 				// everything else
 				cam.ResetReplacementShader();
+				//TV = true;
 			}
 		}
 

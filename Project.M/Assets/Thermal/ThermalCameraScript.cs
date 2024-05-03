@@ -117,17 +117,22 @@ public class ThermalCameraScript : MonoBehaviour
         }
     }
 
-    List<TemperatureController> GetAllTemperatureControllers()
+    public static bool IsObjectPersistent(GameObject obj)
+    {
+        return obj.scene.IsValid();
+    }
+
+    public static List<TemperatureController> GetAllTemperatureControllers()
     {
         List<TemperatureController> TCs = new List<TemperatureController>();
         foreach (TemperatureController TC in Resources.FindObjectsOfTypeAll(typeof(TemperatureController)) as TemperatureController[])
         {
-            if (!EditorUtility.IsPersistent(TC.transform.root.gameObject) &&
-                    !(TC.hideFlags == HideFlags.NotEditable || TC.hideFlags == HideFlags.HideAndDontSave))
+            if (IsObjectPersistent(TC.gameObject) && !(TC.hideFlags == HideFlags.NotEditable || TC.hideFlags == HideFlags.HideAndDontSave))
             {
                 TCs.Add(TC);
             }
         }
         return TCs;
     }
+
 }

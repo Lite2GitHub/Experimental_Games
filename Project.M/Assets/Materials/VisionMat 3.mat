@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VisionMat 2
+  m_Name: VisionMat 3
   m_Shader: {fileID: -6465566751694194690, guid: 0a149a4dbec96b24b89f66937450738d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -106,7 +106,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Base_Colour: {r: 5.0884123, g: 0.32249728, b: 0.07992256, a: 0}
+    - _Base_Colour: {r: 0.07992256, g: 0.368869, b: 5.0884123, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

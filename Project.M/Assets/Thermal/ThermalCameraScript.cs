@@ -53,7 +53,7 @@ public class ThermalCameraScript : MonoBehaviour
                 Renderer R = TC.gameObject.GetComponent<Renderer>();
                 if (R == null) continue;
                 TC.cachedMaterialTag = R.material.GetTag("RenderType", false);
-                TC.cachedColor = R.material.color;
+                //TC.cachedColor = R.material.color;
                 TC.gameObject.GetComponent<Renderer>().material.SetOverrideTag("RenderType", "Temperature");
             }
             // everything else

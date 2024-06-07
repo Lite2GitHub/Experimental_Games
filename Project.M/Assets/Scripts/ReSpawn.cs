@@ -1,14 +1,13 @@
 using UnityEngine;
 
+
 public class ReSpawn : MonoBehaviour
 {
-    public GameObject spawnPoint;
-    //public GameObject playerPrefab;
     bool isBumped;
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Player"))
         {
             isBumped = true;
             Debug.Log("bump check");
@@ -20,21 +19,15 @@ public class ReSpawn : MonoBehaviour
         if (isBumped)
         {
             Debug.Log("updater");
-            RespawnPlayer();
+            RestartGame();
             isBumped = false;
         }
     }
 
-    private void RespawnPlayer()
+    private void RestartGame()
     {
-        
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        player.transform.position = spawnPoint.transform.position;
-        
-        
-
         Debug.Log("respnwnwdjnajd");
+        DeathManager.instance.ResetGame();
     }
 
 }
